@@ -4,27 +4,26 @@ import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 
 public class Persona {
-	
+
 	private String dni;
 	private String nombre;
 	private String apellido;
-	private LocalDate fechadenacimiento; 
+	private LocalDate fechadenacimiento;
 	private String genero;
 	private String telefono;
 	private String direccion;
 	private String email;
-	
-	private static final DateTimeFormatter fechaform =
-		    DateTimeFormatter.ofPattern("dd/MM/yyyy");
-	
-	//constructores 
+
+	private static final DateTimeFormatter fechaform = DateTimeFormatter.ofPattern("dd/MM/yyyy");
+
+	// constructores
 	public Persona() {
-		nombre="sin nombre";
+		nombre = "sin nombre";
 		fechadenacimiento = LocalDate.of(2025, 1, 1);
 	}
-	public Persona(String dni , String nombre , String apellido ,LocalDate fechadenacimiento,
-					String genero , String email , String direccion , String telefono) 
-	{
+
+	public Persona(String dni, String nombre, String apellido, LocalDate fechadenacimiento, String genero, String email,
+			String direccion, String telefono) {
 		this.dni = dni;
 		this.nombre = nombre;
 		this.apellido = apellido;
@@ -34,8 +33,8 @@ public class Persona {
 		this.direccion = direccion;
 		this.telefono = telefono;
 	}
-	
-	//GETTERS Y SETTERS
+
+	// GETTERS Y SETTERS
 	public String getDni() {
 		return dni;
 	}
@@ -102,17 +101,34 @@ public class Persona {
 
 	@Override
 	public String toString() {
-		return "La persona con DNI " + dni + " se llama " + nombre + " " + apellido +
-		           ", nació el " + fechadenacimiento.format(fechaform) +
-		           ", es de género " + genero +
-		           ", vive en " + direccion +
-		           ", su número de teléfono es " + telefono +
-		           " y su correo electrónico es " + email + ".";
+		return "La persona con DNI " + dni + " se llama " + nombre + " " + apellido + ", nació el "
+				+ fechadenacimiento.format(fechaform) + ", es de género " + genero + ", vive en " + direccion
+				+ ", su número de teléfono es " + telefono + " y su correo electrónico es " + email + ".";
 	}
 
-	
-	
-	
-	
-	
+	public static Boolean verificarDNI(String dni) throws ExVerificarDNI {
+
+		final int CANT = 8; // el tamaño es fijo
+		Boolean esDigito = true;
+		Boolean cantDigito = true;
+
+		if (dni == null)
+			throw new ExVerificarDNI(); // verifico que no sea una cadena vacia
+		dni = dni.trim(); // sacamos los espacios vacios principio-fin (un poco de lo visto en C#)
+
+		if (dni.length() != CANT) {
+			cantDigito = false; // cambio el estado si no tiene el tamaño
+			throw new ExVerificarDNI();
+		}
+
+		for (int i = 0; i < dni.length(); i++) { // tambien puede ser CANT en lugar de .length()
+			if (!Character.isDigit(dni.charAt(i))) {
+				esDigito = false; // cambio el estado si no es digito
+				throw new ExVerificarDNI();
+			}
+
+		}
+		return (esDigito && cantDigito); // si no se modifico el estado da todo true
+	}
+//Escucho sus opiniones, no creo que es el mejor método.
 }
