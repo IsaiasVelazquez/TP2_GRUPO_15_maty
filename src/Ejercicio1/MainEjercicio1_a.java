@@ -14,7 +14,7 @@ public class MainEjercicio1_a {
 		//p1
 		try {
 			// un poco de feedback
-			if (Persona.verificarDNI(p1.getDni()))
+			if (Persona.exVerificarDNI(p1.getDni()))
 				System.out.println("Persona agregada correctamente");
 		} catch (ExVerificarDNI e) {
 			System.out.println("Persona no agregada por no verificar el DNI");
@@ -22,7 +22,7 @@ public class MainEjercicio1_a {
 		}
 		//p2
 		try {
-			if (Persona.verificarDNI(p2.getDni()))
+			if (Persona.exVerificarDNI(p2.getDni()))
 				System.out.println("Persona agregada correctamente");
 		} catch (ExVerificarDNI e) {
 			System.out.println("Persona no agregada por no verificar el DNI");
