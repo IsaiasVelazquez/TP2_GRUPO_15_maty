@@ -2,6 +2,7 @@ package Ejercicio1;
 
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
+import java.util.Objects;
 
 public class Persona {
 
@@ -106,7 +107,7 @@ public class Persona {
 				+ ", su número de teléfono es " + telefono + " y su correo electrónico es " + email + ".";
 	}
 
-	public static Boolean verificarDNI(String dni) throws ExVerificarDNI {
+	public static Boolean exVerificarDNI(String dni) throws ExVerificarDNI {
 
 		final int CANT = 8; // el tamaño es fijo
 		Boolean esDigito = true;
@@ -131,4 +132,26 @@ public class Persona {
 		return (esDigito && cantDigito); // si no se modifico el estado da todo true
 	}
 //Escucho sus opiniones, no creo que es el mejor método.
+	//hashcode y equals 
+
+	@Override
+	public int hashCode() {
+		return Objects.hash(apellido, direccion, dni, email, fechadenacimiento, genero, nombre, telefono);
+	}
+
+	@Override
+	public boolean equals(Object obj) {
+		if (this == obj)
+			return true;
+		if (obj == null)
+			return false;
+		if (getClass() != obj.getClass())
+			return false;
+		Persona other = (Persona) obj;
+		return Objects.equals(apellido, other.apellido) && Objects.equals(direccion, other.direccion)
+				&& Objects.equals(dni, other.dni) && Objects.equals(email, other.email)
+				&& Objects.equals(fechadenacimiento, other.fechadenacimiento) && Objects.equals(genero, other.genero)
+				&& Objects.equals(nombre, other.nombre) && Objects.equals(telefono, other.telefono);
+	}
+	
 }
