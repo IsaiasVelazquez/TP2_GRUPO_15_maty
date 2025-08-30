@@ -2,6 +2,7 @@ package Ejercicio1;
 
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
+import java.util.Objects;
 
 public class Persona {
 	
@@ -102,6 +103,7 @@ public class Persona {
 
 	@Override
 	public String toString() {
+
 		return "La persona con DNI " + dni + " se llama " + nombre + " " + apellido +
 		           ", nació el " + fechadenacimiento.format(fechaform) +
 		           ", es de género " + genero +
@@ -109,18 +111,51 @@ public class Persona {
 		           ", su número de teléfono es " + telefono +
 		           " y su correo electrónico es " + email + ".";
 	}
-	
-	public static boolean exVerificarDNI (String dni) throws ExVerificarDNI
-	{
-		if(dni.length() != 8) { //.Length() RETORNA EL NUMERO DE CARACTERES (int)
+
+	public static Boolean exVerificarDNI(String dni) throws ExVerificarDNI {
+
+		final int CANT = 8; // el tamaño es fijo
+		Boolean esDigito = true;
+		Boolean cantDigito = true;
+
+		if (dni == null)
+			throw new ExVerificarDNI(); // verifico que no sea una cadena vacia
+		dni = dni.trim(); // sacamos los espacios vacios principio-fin (un poco de lo visto en C#)
+
+		if (dni.length() != CANT) {
+			cantDigito = false; // cambio el estado si no tiene el tamaño
 			throw new ExVerificarDNI();
 		}
 		for (int i=0; i<dni.length(); i++) {
 			if(!Character.isDigit(dni.charAt(i))) { //Character.isDigit() comprueba si el carácter en la posición i es un dígito
-				throw new ExVerificarDNI();
+				esDigito=false;
+        throw new ExVerificarDNI();
 			}
 			
 		}			
-		return true;
+		return (esDigito && cantDigito);
+	}
+
+//Escucho sus opiniones, no creo que es el mejor método.
+	//hashcode y equals 
+
+	@Override
+	public int hashCode() {
+		return Objects.hash(apellido, direccion, dni, email, fechadenacimiento, genero, nombre, telefono);
+	}
+
+	@Override
+	public boolean equals(Object obj) {
+		if (this == obj)
+			return true;
+		if (obj == null)
+			return false;
+		if (getClass() != obj.getClass())
+			return false;
+		Persona other = (Persona) obj;
+		return Objects.equals(apellido, other.apellido) && Objects.equals(direccion, other.direccion)
+				&& Objects.equals(dni, other.dni) && Objects.equals(email, other.email)
+				&& Objects.equals(fechadenacimiento, other.fechadenacimiento) && Objects.equals(genero, other.genero)
+				&& Objects.equals(nombre, other.nombre) && Objects.equals(telefono, other.telefono);
 	}
 }
