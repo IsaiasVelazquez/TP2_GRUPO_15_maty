@@ -23,6 +23,7 @@ public class Persona {
 		nombre="sin nombre";
 		fechadenacimiento = LocalDate.of(2025, 1, 1);
 	}
+	
 	public Persona(String dni , String nombre , String apellido ,LocalDate fechadenacimiento,
 					String genero , String email , String direccion , String telefono) 
 	{
