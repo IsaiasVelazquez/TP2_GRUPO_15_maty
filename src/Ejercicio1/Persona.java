@@ -111,7 +111,7 @@ public class Persona {
 		           ", su número de teléfono es " + telefono +
 		           " y su correo electrónico es " + email + ".";
 	}
-
+	/*
 	public static Boolean exVerificarDNI(String dni) throws ExVerificarDNI {
 
 		final int CANT = 8; // el tamaño es fijo
@@ -134,7 +134,7 @@ public class Persona {
 			
 		}			
 		return (esDigito && cantDigito);
-	}
+	}*/
 
 //Escucho sus opiniones, no creo que es el mejor método.
 	//hashcode y equals 
@@ -157,5 +157,19 @@ public class Persona {
 				&& Objects.equals(dni, other.dni) && Objects.equals(email, other.email)
 				&& Objects.equals(fechadenacimiento, other.fechadenacimiento) && Objects.equals(genero, other.genero)
 				&& Objects.equals(nombre, other.nombre) && Objects.equals(telefono, other.telefono);
+	}
+	
+	public static boolean exVerificarDNI (String dni) throws ExVerificarDNI
+	{
+		if(dni.length() != 8) { //.Length() RETORNA EL NUMERO DE CARACTERES (int)
+			throw new ExVerificarDNI();
+		}
+		for (int i=0; i<dni.length(); i++) {
+			if(!Character.isDigit(dni.charAt(i))) { //Character.isDigit() comprueba si el carácter en la posición i es un dígito
+				throw new ExVerificarDNI();
+			}
+			
+		}			
+		return true;
 	}
 }
