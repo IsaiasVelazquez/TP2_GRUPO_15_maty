@@ -1,11 +1,22 @@
 package Ejercicio2;
 
-public class EdificioOficinas {
+/*
+Un edificio de oficinas es un edificio;
+en Java interesa conocer el número de oficinas que tiene. 
+*/
+
+public class EdificioOficinas extends Edificio {
 	
-	private int numeroOficinas;
-	
+	public int numeroOficinas;
+
 	public EdificioOficinas() {
+
 		
+	}
+
+	public EdificioOficinas(double superficieEdificio, int numeroOficinas) {
+		super(superficieEdificio);
+		this.numeroOficinas = numeroOficinas;
 	}
 
 	public int getNumeroOficinas() {
@@ -15,6 +26,5 @@ public class EdificioOficinas {
 	public void setNumeroOficinas(int numeroOficinas) {
 		this.numeroOficinas = numeroOficinas;
 	}
-
 	
 }
