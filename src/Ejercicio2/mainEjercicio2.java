@@ -3,7 +3,6 @@ package Ejercicio2;
 import java.util.ArrayList;
 import java.util.Iterator;
 
-import Ejercicio1.Empleado;
 
 /*
 1. Crear una clase llamada mainEjercicio2, con el método main.

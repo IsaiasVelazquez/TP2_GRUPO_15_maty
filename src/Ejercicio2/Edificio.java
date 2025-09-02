@@ -1,3 +1,5 @@
+package Ejercicio2;
+
 import Ejercicio1.Empleado;
 
 /*
