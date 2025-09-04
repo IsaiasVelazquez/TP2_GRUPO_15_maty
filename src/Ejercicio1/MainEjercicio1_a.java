@@ -1,6 +1,7 @@
 package Ejercicio1;
 
 import java.util.ArrayList;
+import java.util.List;
 
 public class MainEjercicio1_a {
 	
@@ -12,7 +13,7 @@ public class MainEjercicio1_a {
 		Persona p2 = new Persona();
 		p2.setDni("20202020");
 		
-		ArrayList<Persona> listaPersonas = new ArrayList<Persona>(2);
+		List<Persona> listaPersonas = new ArrayList<Persona>(2);
 		listaPersonas.add(p1);
 		listaPersonas.add(p2);
 		

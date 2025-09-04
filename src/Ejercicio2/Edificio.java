@@ -26,7 +26,7 @@ public class Edificio  {
 
 	@Override
 	public String toString() {
-		return "Edificio [SuperficieEdificio=" + SuperficieEdificio + "]";
+		return "Superficie = " + SuperficieEdificio;
 	}
 
 }

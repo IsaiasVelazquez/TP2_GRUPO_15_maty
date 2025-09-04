@@ -3,6 +3,7 @@ package Ejercicio1;
 import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.Iterator;
+import java.util.List;
 
 public class MainEjercicio1_b {
 
@@ -15,7 +16,7 @@ public class MainEjercicio1_b {
 		Empleado em5 = new Empleado("55555555", "Isaias", "Velazquez", LocalDate.of(1985, 11, 25), "M", "bruno@gmail.com", "Calle 5", "5555", "Soporte");
 		
 		
-		ArrayList<Empleado> empleados = new ArrayList<Empleado>();
+		List<Empleado> empleados = new ArrayList<Empleado>();
 		
 		//creamos 5 empleados y los guardamos dentro del treeset 
         empleados.add(em1);

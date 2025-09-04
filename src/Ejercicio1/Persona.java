@@ -147,17 +147,11 @@ public class Persona {
 
 	@Override
 	public boolean equals(Object obj) {
-		if (this == obj)
-			return true;
-		if (obj == null)
-			return false;
-		if (getClass() != obj.getClass())
-			return false;
+		if (this == obj) return true;
+		if (obj == null) return false;
+		if (getClass() != obj.getClass()) return false;
 		Persona other = (Persona) obj;
-		return Objects.equals(apellido, other.apellido) && Objects.equals(direccion, other.direccion)
-				&& Objects.equals(dni, other.dni) && Objects.equals(email, other.email)
-				&& Objects.equals(fechadenacimiento, other.fechadenacimiento) && Objects.equals(genero, other.genero)
-				&& Objects.equals(nombre, other.nombre) && Objects.equals(telefono, other.telefono);
+		return Objects.equals(dni, other.dni) ;
 	}
 	
 	public static boolean exVerificarDNI (String dni) throws ExVerificarDNI

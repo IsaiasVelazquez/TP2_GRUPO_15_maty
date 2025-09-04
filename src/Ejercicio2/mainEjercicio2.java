@@ -2,6 +2,7 @@ package Ejercicio2;
 
 import java.util.ArrayList;
 import java.util.Iterator;
+import java.util.List;
 
 
 /*
@@ -15,47 +16,23 @@ public class mainEjercicio2 {
 
 	public static void main(String[] args) {
 		
-		//Creamos el ArrayList
-		ArrayList<Edificio> lista = new ArrayList<Edificio>();
-		
-		//Creamos los Objetos que pide el enunciado
-		Polideportivo PolideportivoUno = new Polideportivo(1000,2,"Polideportivo Uno, Central");
-		Polideportivo PolideportivoDos = new Polideportivo(600,2,"Polideportivo Dos, Municipal");
-		Polideportivo PolideportivoTres = new Polideportivo(400,2,"Polideportivo Tres, Seccional Pacheco");
-		EdificioOficinas ComplejoUno = new EdificioOficinas(700,40);
-		EdificioOficinas ComplejoDos = new EdificioOficinas(360,20);
-		
-		//Agregamos los objetos al ArrayList
-		lista.add(PolideportivoUno);
-		lista.add(PolideportivoDos);
-		lista.add(PolideportivoTres);
-		lista.add(ComplejoUno);
-		lista.add(ComplejoDos);
-		
-		//Usamos el Iterator para recorrer el ArrayList y Mostrar los Objetos
+
+		List<Edificio> lista = new ArrayList<>();
+
+		// Polis
+        lista.add(new Polideportivo("Poli Troncos", 1250.50, 1));
+        lista.add(new Polideportivo("Poli San Fernando",  980,  2));
+        lista.add(new Polideportivo("Poli Tigre", 1500, 3));
+
+        //Edificios
+        lista.add(new EdificioOficinas(12000.70, 78));
+        lista.add(new EdificioOficinas(1750,  15));
+
+        // Iterador
         Iterator<Edificio> it = lista.iterator();
-        
-        //Creamos el Ciclo While
-        while(it.hasNext()) {
-        	
-            Edificio ed = it.next();
-            
-            System.out.println("Superficie: " + ed.getSuperficieEdificio());
-            
-            //Mostramos los atributos específicos de cada tipo usando instanceof
-            
-            if(ed instanceof Polideportivo) {
-                Polideportivo poli = (Polideportivo) ed;
-                System.out.println("Nombre: " + poli.getNombre());
-                System.out.println("Tipo de instalación: " + poli.getTipoDeInstalacion());
-            } 
-            
-            else if(ed instanceof EdificioOficinas) {
-                EdificioOficinas oficinas = (EdificioOficinas) ed;
-                System.out.println("Cantidad de oficinas: " + oficinas.getNumeroOficinas());
-            }
-            
+        while (it.hasNext()) {
+            System.out.println(it.next());
             System.out.println("----------------------------");
-        }
 	}
+        }
 }

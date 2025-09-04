@@ -10,17 +10,17 @@ en Java interesa conocer la superficie que tiene y el nombre que tiene.
 public class Polideportivo extends Edificio implements InstalacionDeportiva {
 	
 	private String nombre;
-	private int TipoDeInstalacion;
+	private int tipoDeInstalacion;
 
 	
 	public Polideportivo() {
 		
 	}
 
-	public Polideportivo(double superficieEdificio, int tipodeinstalacion, String nombre) {
+	public Polideportivo(String nombre,double superficieEdificio, int tipodeinstalacion ) {
 		super(superficieEdificio);
-		this.TipoDeInstalacion = tipodeinstalacion;
 		this.nombre = nombre;
+		this.tipoDeInstalacion = tipodeinstalacion;
 	}
 	
 	public String getNombre() {
@@ -32,10 +32,18 @@ public class Polideportivo extends Edificio implements InstalacionDeportiva {
 	}
 
 	public int getTipoDeInstalacion() {
-		return TipoDeInstalacion;
+		return tipoDeInstalacion;
 	}
 
 	public void setTipoDeInstalacion(int tipoDeInstalacion) {
-		TipoDeInstalacion = tipoDeInstalacion;
+		this.tipoDeInstalacion = tipoDeInstalacion;
 	}
+
+	@Override
+	public String toString() {
+	     return "Nombre del polideportivo '" + nombre+ "'\n"
+	             + "con una superficie total de " + super.getSuperficieEdificio() + " m² \n"
+	             + "Es de tipo " + tipoDeInstalacion + ".";
+	}
+	
 }

@@ -1,7 +1,8 @@
 package Ejercicio1;
 
 import java.time.LocalDate;
-import java.util.Iterator; 
+import java.util.Iterator;
+import java.util.Set;
 import java.util.TreeSet; 
 
 public class MainEjercicio1_c {
@@ -15,7 +16,7 @@ public class MainEjercicio1_c {
 		Empleado em9 = new Empleado("44444444", "María", "López", LocalDate.of(1992, 7, 8), "F", "maria@mail.com", "Calle 9", "9999", "Gerente de IT");
 		Empleado em10 = new Empleado("55555555", "Pedro", "Gómez", LocalDate.of(1985, 11, 25), "M", "pedro@mail.com", "Calle 10", "1010", "Gestor de Proyectos");
 		
-		TreeSet<Empleado> empleados = new TreeSet<Empleado>();
+		Set<Empleado> empleados = new TreeSet<Empleado>();
 		
 		//creamos 5 empleados y los guardamos dentro del treeset 
         empleados.add(em6);

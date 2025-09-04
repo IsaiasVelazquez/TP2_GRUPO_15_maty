@@ -1,6 +1,7 @@
 package Ejercicio1;
 
 import java.time.LocalDate;
+import java.util.Set;
 import java.util.HashSet;
 import java.util.Iterator;
 
@@ -17,7 +18,7 @@ public class MainEjercicio1_d {
         Persona p5= new Persona("55555555", "Valentino", "Monje", LocalDate.of(1985, 11, 25), "M", "valentino@gmail.com", "Calle 15", "1515");
 
         // Guardamos en el hashset
-        HashSet<Persona> personas = new HashSet<Persona>();
+        Set<Persona> personas = new HashSet<Persona>();
         personas.add(p1);
         personas.add(p2);
         personas.add(p3);
