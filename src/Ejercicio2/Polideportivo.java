@@ -1,5 +1,6 @@
 package Ejercicio2;
 
+
 /*
 Un polideportivo es al mismo tiempo una instalación deportiva y un edificio;
 en Java interesa conocer la superficie que tiene y el nombre que tiene. 
@@ -10,6 +11,7 @@ public class Polideportivo extends Edificio implements InstalacionDeportiva {
 	
 	private String nombre;
 	private int TipoDeInstalacion;
+
 	
 	public Polideportivo() {
 		
@@ -36,8 +38,4 @@ public class Polideportivo extends Edificio implements InstalacionDeportiva {
 	public void setTipoDeInstalacion(int tipoDeInstalacion) {
 		TipoDeInstalacion = tipoDeInstalacion;
 	}
-
-	
-
-	
 }

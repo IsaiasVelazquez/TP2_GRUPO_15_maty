@@ -27,5 +27,4 @@ public class EdificioOficinas extends Edificio {
 		this.numeroOficinas = numeroOficinas;
 	}
 	
-	
 }
